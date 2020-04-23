@@ -8,7 +8,7 @@ Cities' Resources
 7. 150f	75g
 8. 650f	450g
 9. 400f	320g
-10. 380f	165g
+10. 380f 165g
 
 Cities' Soldiers
   EASY	HARD
