@@ -27,6 +27,7 @@ public:
 	int getSoldierCount();
 	int getDefensivePower();
 	int getSatisfactionRate();
+	bool getSpyState(); // returns hasSpy
 	std::string getRelationState();
 	
 	void setFoodStock(int foodStock);
