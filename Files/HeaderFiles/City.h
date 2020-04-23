@@ -35,6 +35,7 @@ public:
 	void setSoldierCount(int soldierCount);
 	void setDefensivePower(int defensivePower);
 	void setSatisfactionRate(int satisfactionRate);
+	void setSpyState(bool spyState);
 	void setRelationState(std::string relationState);
 };
 #endif // City.h
