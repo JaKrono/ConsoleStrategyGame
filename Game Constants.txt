@@ -1,0 +1,65 @@
+Cities' Resources
+1. 200f	100g
+2. 300f	200g
+3. 500f	350g
+4. 150f	80g
+5. 350f	100g
+6. 250f	95g
+7. 150f	75g
+8. 650f	450g
+9. 400f	320g
+10. 380f	165g
+
+Cities' Soldiers
+  EASY	HARD
+1. 40s	55s
+2. 50s	62s
+3. 60s	75s
+4. 20s	30s
+5. 30s	42s
+6. 35s	48s
+7. 18s	28s
+8. 80s	105s
+9. 50s	62s
+10. 60s	76s
+
+Cities' Satisfaction Rates
+  EASY	HARD
+1. 38   43
+2. 46   50
+3. 76   80
+4. 23	  32
+5. 50	  60
+6. 40	  52
+7. 15 	25
+8. 90 	100
+9. 65 	76
+10. 60 	72
+
+Cities Defensive Powers
+  EASY	HARD
+1. 70 	82
+2. 65 	76
+3. 13 	35
+4. 46 	65
+5. 32 	43
+6. 65 	78
+7. 90 	100
+8. 34 	43
+9. 65  	78
+10. 43	55
+
+Armies' Damages
+	    	EASY	HARD
+Knight		30	45
+Archer		15	23
+Swordsman	20	32
+Pikeman		18	28
+
+Armies'/Spy Cost
+	        	EASY	  HARD
+Spy		    35f 40g 	45f 50g
+Knight		30f 35g	  40f 48g
+Archer		12f 10g 	18f 16g
+Swordsman	25f 30g 	35f 38g
+Pikeman		20f 20g 	25f 28g 	
