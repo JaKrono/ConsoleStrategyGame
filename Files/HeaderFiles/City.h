@@ -26,5 +26,12 @@ public:
 	int getDefensivePower();
 	int getSatisfactionRate();
 	std::string getRelationState();
+	
+	void setFoodStock(int foodStock);
+	void setGoldStock(int goldStock);
+	void setSoldierCount(int soldierCount);
+	void setDefensivePower(int defensivePower);
+	void setSatisfactionRate(int satisfactionRate);
+	void setRelationState(std::string relationState);
 };
 #endif // City.h
