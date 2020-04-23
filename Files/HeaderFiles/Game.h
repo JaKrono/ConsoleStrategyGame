@@ -10,5 +10,15 @@ public:
 
 	// constructor
 	Game(int difficulty);
+	
+	
+	bool getSaveStatus(){
+		return this->saveStatus;
+	}
+	void setSaveStatus(bool saveStatus){
+		this->saveStatus = saveStatus ;
+	}
+private:
+	bool saveStatus = false;
 };
 #endif // Game.h
