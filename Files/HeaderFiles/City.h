@@ -13,6 +13,8 @@ private:
 
 	int satisfactionRate; // 0 - 100
 	
+	bool hasSpy; // true if there is a spy in the city
+	
 	std::string relationState; // "Enemy" - "Captured"
 public:
 	// returns true if coup de'tat has been successful and false if not
