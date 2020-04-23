@@ -28,9 +28,9 @@ Cities' Satisfaction Rates
 1. 38   43
 2. 46   50
 3. 76   80
-4. 23	  32
-5. 50	  60
-6. 40	  52
+4. 23	32
+5. 50	60
+6. 40	52
 7. 15 	25
 8. 90 	100
 9. 65 	76
@@ -57,9 +57,9 @@ Swordsman	20	32
 Pikeman		18	28
 
 Armies'/Spy Cost
-	        	EASY	  HARD
-Spy		    35f 40g 	45f 50g
-Knight		30f 35g	  40f 48g
-Archer		12f 10g 	18f 16g
-Swordsman	25f 30g 	35f 38g
-Pikeman		20f 20g 	25f 28g 	
+	        	EASY	  	HARD
+Spy		   	35f 40g 	45f 50g
+Knight			30f 35g	  	40f 48g
+Archer			12f 10g 	18f 16g
+Swordsman		25f 30g 	35f 38g
+Pikeman			20f 20g 	25f 28g 	
