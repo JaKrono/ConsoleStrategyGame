@@ -63,10 +63,10 @@ Cities Defensive Powers
 
 Armies' Damages
 	    	EASY	HARD
-Knight		30	45
-Archer		15	23
-Swordsman	20	32
-Pikeman		18	28
+Knight		45	30
+Archer		23	15
+Swordsman	32	20
+Pikeman		28	18
 
 Armies' casualty rates
 Swordsman 	0.4
