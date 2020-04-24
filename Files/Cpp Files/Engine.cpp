@@ -38,21 +38,22 @@ void Engine::gameMenu(int gameDifficulty) {
 
 		if (commandType == 1) {
 
+			// Attacking
 			int cityNumber;
 			cin >> cityNumber;
-			int attackingTroops; // number of the player's soldiers that are attacking the town
-			game.player.attack(attackingTroops, &game.cities[cityNumber]);
+			if (game.player.attack(&game.cities[cityNumber])) {
+				game.player.setFoodStock(game.player.getFoodStock() + game.cities[cityNumber].getFoodStock());
+				game.player.setGoldStock(game.player.getGoldStock() + game.cities[cityNumber].getGoldStock());
+			}
 
 		} else if (commandType == 2) {
 
-			int type;
-			cin >> type;
-			int howMany;
-			cin >> howMany;
-			game.player.makeTroops(howMany, type);
+			// Making troops
+			game.player.makeTroops();
 
 		} else if (commandType == 3) {
 
+			// Sending Spy
 			int cityNumber;
 			cin >> cityNumber;
 			game.player.sendSpy(&game.cities[cityNumber]);
