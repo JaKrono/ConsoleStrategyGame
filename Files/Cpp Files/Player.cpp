@@ -98,6 +98,7 @@ bool Player::attack(City* theCity) {
 						cout << "We lost " << playersArmy[i].count - inputArr[i] << " " << playersArmy[i].type << "(s).\n";
 					}
 				}
+				theCity->setSoldierCount( (float)theCity->getSoldierCount() * (float)ourDamage / (float)theirDamage );
 				return false;
 
 			}
