@@ -23,10 +23,13 @@ private:
 	
 	void setEasyLevelCitiesSoldiers();
 	void setHardLevelCitiesSoldiers();
+
 	void setEasyLevelCitiesSatisfactionRates();
 	void setHardLevelCitiesSatisfactionRates();
+
 	void setEasyLevelCitiesDefensivePowers();
 	void setHardLevelCitiesDefensivePowers();
+
 	void setCitiesResources();
 };
 #endif // Game.h
