@@ -9,6 +9,7 @@ EASY		HARD
 45 Pikemen	25 PikeMen
 35 Swordsmen	20 Swordsmen
 30 Knights	15 Knights
+8  Spies	4  Spies
 
 Cities' Resources
 1. 200f	100g
