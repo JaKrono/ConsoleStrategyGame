@@ -9,8 +9,8 @@ public:
 	int count;
 	int foodCost;
 	int goldCost;
-
-	Army(std::string t, int d, int c, int f, int g);
+	float casualtyRate; // 0 - 1
+	void setValues(std::string type, int damage, int count, int foodCost, int goldCost, float casualtyRate);
 };
 
 #endif // Army.h
