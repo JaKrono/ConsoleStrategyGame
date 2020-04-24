@@ -1,9 +1,10 @@
 #include "Army.h"
 
-Army::Army(std::string t, int d, int c, int f, int g) {
-	type = t;
-	damage = d;
-	count = c;
-	foodCost = f;
-	goldCost = g;
+void Army::setValues(std::string type, int damage, int count, int foodCost, int goldCost, float casualtyRate) {
+	this->type = type;
+	this->damage = damage;
+	this->count = count;
+	this->foodCost = foodCost;
+	this->goldCost = goldCost;
+	this->casualtyRate = casualtyRate;
 }
