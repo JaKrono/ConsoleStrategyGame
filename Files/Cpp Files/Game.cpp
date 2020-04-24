@@ -4,21 +4,23 @@
 using namespace::std;
 
 Game::Game(int difficulty){
-	//Player 
 	
 	if( difficulty== 1 ){//Easy game level
 	
 		this->setEasyLevelCitiesSoldiers();
 		this->setEasyLevelCitiesSatisfactionRates();
 		this->setEasyLevelCitiesDefensivePowers();
+		this->player.setValues(difficulty);
 		
 	} else {//Hard game level
 		
 		this->setHardLevelCitiesSoldiers();
 		this->setHardLevelCitiesSatisfactionRates();
 		this->setHardLevelCitiesDefensivePowers();
+		this->player.setValues(difficulty);
 		
 	} 
+
 	this->setCitiesResources();
 	
 }
@@ -29,7 +31,7 @@ bool Game::saveGame(){
 		return false;
 	}
 	
-	Game tempGame = *this ;
+	Game tempGame = *this;
 	tempGame.setSaveStatus(true);
 	fs.write(reinterpret_cast<char*> (&tempGame),sizeof(tempGame));	
 	fs.close();
@@ -49,7 +51,7 @@ bool Game::loadGame(){
 		this->player = tempGame.player ;
 		return true;
 	}else {
-		return flase;
+		return false;
 	}
 	fs.close();
 	
