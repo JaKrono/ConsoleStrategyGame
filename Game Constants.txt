@@ -1,3 +1,15 @@
+Player's starting resources
+EASY	HARD
+800F	600G
+600F	400G
+
+Player's starting troops
+EASY		HARD
+60 Archers	30 Archers
+45 Pikemen	25 PikeMen
+35 Swordsmen	20 Swordsmen
+30 Knights	15 Knights
+
 Cities' Resources
 1. 200f	100g
 2. 300f	200g
