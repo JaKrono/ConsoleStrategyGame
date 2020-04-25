@@ -65,7 +65,7 @@ bool Player::attack(City* theCity) {
 			}
 		}
 		if (correctNumber && !sendingZeroUnits) {
-			int ourDamage, theirDamage = theCity->getSoldierCount() * theCity->getDefensivePower() / 4;
+			int ourDamage = 0, theirDamage = theCity->getSoldierCount() * theCity->getDefensivePower() / 4;
 			for (int i = 0;i < 4;i++) {
 				ourDamage += playersArmy[i].damage * inputArr[i];
 			}
