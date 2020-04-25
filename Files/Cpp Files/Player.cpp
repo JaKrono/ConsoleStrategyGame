@@ -115,7 +115,7 @@ bool Player::attack(City* theCity) {
 void Player::makeTroops() {
 	int* input = inputArmy("Make");
 	int inputArr[5] = { *(input + 0), *(input + 1), *(input + 2),*(input + 3) , *(input + 4)};
-	bool makingZeroUnits = true, bool correctNumber = true;
+	bool makingZeroUnits = true, correctNumber = true;
 	for (int i = 0;i < 5;i++) {
 		if (inputArr[i] < 0) {
 			correctNumber = false;
