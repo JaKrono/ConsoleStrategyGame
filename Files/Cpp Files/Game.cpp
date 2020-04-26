@@ -3,6 +3,11 @@
 
 using namespace::std;
 
+
+Game::Game(){//Default constructor
+	
+}
+
 Game::Game(int difficulty){
 	
 	if( difficulty== 1 ){//Easy game level
@@ -25,6 +30,8 @@ Game::Game(int difficulty){
 	
 }
 
+
+//saving Game from file
 bool Game::saveGame(){
 	fstream fs("SavedGames.txt",ios::in | ios::out | ios::binary);
 	if(!fs){
@@ -38,7 +45,7 @@ bool Game::saveGame(){
 	return true;
 }
 
-
+//Loading Game from file
 bool Game::loadGame(){
 	Game tempGame;
 	fstream fs("SavedGames.txt",ios::in | ios::out | ios::binary);
@@ -47,15 +54,27 @@ bool Game::loadGame(){
 	}
 	fs.read( reinterpret_cast<char*>(&tempGame),sizeof(tempGame));
 	if(tempGame.getSaveStatus()){
-		this->cities = tempGame.cities ;
-		this->player = tempGame.player ;
-		return true;
+		
+		for(int i = 0 ; i < 10; i++)//Setting Saved Game Cities in the This Object
+			this->cities[i] = tempGame.cities[i] ;
+			
+		this->player = tempGame.player ;//Setting Saved Game Player in the This Player
+		
+		return true;//Loading Game was Completly successful
+		
 	}else {
+		
 		return false;
+	
 	}
+	
 	fs.close();
 	
 }
+
+
+//The following functions are designed to initialize the resources of cities according to the level of game
+
 
 //Set Soldiers Amount in the Cities According to Easy Level
 void Game::setEasyLevelCitiesSoldiers(){
@@ -150,5 +169,36 @@ void Game::setHardLevelCitiesDefensivePowers(){
 	this->cities[7].setDefensivePower(43);
 	this->cities[8].setDefensivePower(78);
 	this->cities[9].setDefensivePower(55);
+	
+}
+
+
+//Set Cities Resources in the Cities is same for any game level
+void Game::setCitiesResources(){
+	
+	//Set Default Food Stock in the Cities
+	this->cities[0].setFoodStock(200);
+	this->cities[1].setFoodStock(300);
+	this->cities[2].setFoodStock(500);
+	this->cities[3].setFoodStock(150);
+	this->cities[4].setFoodStock(350);
+	this->cities[5].setFoodStock(250);
+	this->cities[6].setFoodStock(150);
+	this->cities[7].setFoodStock(650);
+	this->cities[8].setFoodStock(400);
+	this->cities[9].setFoodStock(380);
+	
+
+	//Set Default Gold Stock in the Cities	
+	this->cities[0].setGoldStock(100);
+	this->cities[1].setGoldStock(200);
+	this->cities[2].setGoldStock(350);
+	this->cities[3].setGoldStock(80);
+	this->cities[4].setGoldStock(100);
+	this->cities[5].setGoldStock(95);
+	this->cities[6].setGoldStock(75);
+	this->cities[7].setGoldStock(450);
+	this->cities[8].setGoldStock(320);
+	this->cities[9].setGoldStock(165);
 	
 }

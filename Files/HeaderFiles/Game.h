@@ -8,9 +8,12 @@ public:
 	Player player;
 	City cities[10];
 	
-	// constructor
+	//Constructors
 	Game(int difficulty);
+	Game();
 	
+	bool saveGame();
+	bool loadGame();
 	
 	bool getSaveStatus(){
 		return this->saveStatus;
