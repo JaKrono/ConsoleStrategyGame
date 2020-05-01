@@ -3,27 +3,24 @@
 
 #include "City.h"
 #include "Player.h"
+#include <fstream>
+
 class Game {
 public:
 	Player player;
 	City cities[10];
 	
-	//Constructors
-	Game(int difficulty);
+	// set default values of player, cities, ...
+	void setValues(int difficulty);
+
+	// constructor
 	Game();
-	
-	bool saveGame();
-	bool loadGame();
-	
-	bool getSaveStatus(){
-		return this->saveStatus;
-	}
-	void setSaveStatus(bool saveStatus){
-		this->saveStatus = saveStatus ;
-	}
+
 private:
-	bool saveStatus = false;
+	//bool saveStatus = false;
 	
+	void setCityNames();
+
 	void setEasyLevelCitiesSoldiers();
 	void setHardLevelCitiesSoldiers();
 
