@@ -1,6 +1,7 @@
 #ifndef CITY_H
 #define CITY_H
 
+#include <iostream>
 #include <string>
 
 class City {
@@ -12,15 +13,20 @@ private:
 	int defensivePower; // 0 - 100
 
 	int satisfactionRate; // 0 - 100
+
+	bool hasSpy = false; // true if there is a spy in the city
 	
-	bool hasSpy; // true if there is a spy in the city
-	
-	std::string relationState; // "Enemy" - "Captured"
+	std::string relationState = "Enemy"; // "Enemy" - "Captured"
+
+	std::string name;
+
 public:
+
 	// returns true if coup de'tat has been successful and false if not
 	bool conspiracy();
 
-	void pirntDetailes();
+	// prints the detailes that player knows about the city
+	void printDetailes();
 
 	int getFoodStock();
 	int getGoldStock();
@@ -30,6 +36,7 @@ public:
 	bool getSpyState(); // returns hasSpy
 	std::string getRelationState();
 	
+	void setCityName(std::string n);
 	void setFoodStock(int foodStock);
 	void setGoldStock(int goldStock);
 	void setSoldierCount(int soldierCount);
