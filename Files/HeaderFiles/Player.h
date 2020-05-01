@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip> // for setw()
 
 #include "City.h"
 #include "Army.h"
@@ -42,5 +43,8 @@ public:
 
 	// handles input for attacking and making troops
 	int* inputArmy(std::string type); // type = "Attack" , "Make"
+
+	// prints the player's resorces
+	void printPlayer();
 };
 #endif // Player.h
