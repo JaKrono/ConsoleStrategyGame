@@ -1,14 +1,8 @@
 #include "Game.h"
-#include <fstream>
 
 using namespace::std;
 
-
-Game::Game(){//Default constructor
-	
-}
-
-Game::Game(int difficulty){
+void Game::setValues(int difficulty){
 	
 	if( difficulty== 1 ){//Easy game level
 	
@@ -27,54 +21,26 @@ Game::Game(int difficulty){
 	} 
 
 	this->setCitiesResources();
+	this->setCityNames();
 	
 }
 
-
-//saving Game from file
-bool Game::saveGame(){
-	fstream fs("SavedGames.txt",ios::in | ios::out | ios::binary);
-	if(!fs){
-		return false;
-	}
-	
-	Game tempGame = *this;
-	tempGame.setSaveStatus(true);
-	fs.write(reinterpret_cast<char*> (&tempGame),sizeof(tempGame));	
-	fs.close();
-	return true;
+Game::Game() {
+	//cout << "Game obj created.\n";
 }
 
-//Loading Game from file
-bool Game::loadGame(){
-	Game tempGame;
-	fstream fs("SavedGames.txt",ios::in | ios::out | ios::binary);
-	if(!fs){
-		return false;
-	}
-	fs.read( reinterpret_cast<char*>(&tempGame),sizeof(tempGame));
-	if(tempGame.getSaveStatus()){
-		
-		for(int i = 0 ; i < 10; i++)//Setting Saved Game Cities in the This Object
-			this->cities[i] = tempGame.cities[i] ;
-			
-		this->player = tempGame.player ;//Setting Saved Game Player in the This Player
-		
-		return true;//Loading Game was Completly successful
-		
-	}else {
-		
-		return false;
-	
-	}
-	
-	fs.close();
-	
+void Game::setCityNames() {
+	this->cities[0].setCityName("Aalborg");
+	this->cities[1].setCityName("Jomsborg");
+	this->cities[2].setCityName("Reric");
+	this->cities[3].setCityName("Rouen");
+	this->cities[4].setCityName("Cork");
+	this->cities[5].setCityName("Fyrkat");
+	this->cities[6].setCityName("Vinland");
+	this->cities[7].setCityName("Wolin");
+	this->cities[8].setCityName("Hedeby");
+	this->cities[9].setCityName("Gevninge");
 }
-
-
-//The following functions are designed to initialize the resources of cities according to the level of game
-
 
 //Set Soldiers Amount in the Cities According to Easy Level
 void Game::setEasyLevelCitiesSoldiers(){
@@ -111,32 +77,32 @@ void Game::setHardLevelCitiesSoldiers(){
 //Set Satisfaction Rates Amount in the Cities According to Easy Level
 void Game::setEasyLevelCitiesSatisfactionRates(){
 	
-	this->cities[0].setSatisfactionRate(38);
-	this->cities[1].setSatisfactionRate(46);
-	this->cities[2].setSatisfactionRate(76);
-	this->cities[3].setSatisfactionRate(23);
-	this->cities[4].setSatisfactionRate(50);
-	this->cities[5].setSatisfactionRate(40);
-	this->cities[6].setSatisfactionRate(15);
+	this->cities[0].setSatisfactionRate(48);
+	this->cities[1].setSatisfactionRate(56);
+	this->cities[2].setSatisfactionRate(86);
+	this->cities[3].setSatisfactionRate(43);
+	this->cities[4].setSatisfactionRate(60);
+	this->cities[5].setSatisfactionRate(50);
+	this->cities[6].setSatisfactionRate(45);
 	this->cities[7].setSatisfactionRate(90);
-	this->cities[8].setSatisfactionRate(65);
-	this->cities[9].setSatisfactionRate(60);
+	this->cities[8].setSatisfactionRate(75);
+	this->cities[9].setSatisfactionRate(80);
 	
 }
 
 //Set Satisfaction Rates Amount in the Cities According to Hard Level
 void Game::setHardLevelCitiesSatisfactionRates(){
 	
-	this->cities[0].setSatisfactionRate(43);
-	this->cities[1].setSatisfactionRate(50);
-	this->cities[2].setSatisfactionRate(80);
-	this->cities[3].setSatisfactionRate(32);
-	this->cities[4].setSatisfactionRate(60);
-	this->cities[5].setSatisfactionRate(52);
-	this->cities[6].setSatisfactionRate(25);
+	this->cities[0].setSatisfactionRate(63);
+	this->cities[1].setSatisfactionRate(80);
+	this->cities[2].setSatisfactionRate(100);
+	this->cities[3].setSatisfactionRate(62);
+	this->cities[4].setSatisfactionRate(80);
+	this->cities[5].setSatisfactionRate(82);
+	this->cities[6].setSatisfactionRate(65);
 	this->cities[7].setSatisfactionRate(100);
-	this->cities[8].setSatisfactionRate(76);
-	this->cities[9].setSatisfactionRate(72);
+	this->cities[8].setSatisfactionRate(86);
+	this->cities[9].setSatisfactionRate(92);
 	
 }
 
@@ -172,11 +138,8 @@ void Game::setHardLevelCitiesDefensivePowers(){
 	
 }
 
+void Game::setCitiesResources() {
 
-//Set Cities Resources in the Cities is same for any game level
-void Game::setCitiesResources(){
-	
-	//Set Default Food Stock in the Cities
 	this->cities[0].setFoodStock(200);
 	this->cities[1].setFoodStock(300);
 	this->cities[2].setFoodStock(500);
@@ -187,9 +150,7 @@ void Game::setCitiesResources(){
 	this->cities[7].setFoodStock(650);
 	this->cities[8].setFoodStock(400);
 	this->cities[9].setFoodStock(380);
-	
 
-	//Set Default Gold Stock in the Cities	
 	this->cities[0].setGoldStock(100);
 	this->cities[1].setGoldStock(200);
 	this->cities[2].setGoldStock(350);
@@ -200,5 +161,5 @@ void Game::setCitiesResources(){
 	this->cities[7].setGoldStock(450);
 	this->cities[8].setGoldStock(320);
 	this->cities[9].setGoldStock(165);
-	
+
 }
