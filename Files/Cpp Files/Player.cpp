@@ -38,7 +38,7 @@ void Player::setValues(int difficulty) {
 		playersArmy[1].setValues("Pikeman", 28, 45, 20, 20, 0.34f);
 		playersArmy[2].setValues("Swordsman", 32, 35, 25, 30, 0.4f);
 		playersArmy[3].setValues("Knight", 45, 30, 30, 35, 0.28f);
-	} else if (difficulty = 2) { // Hard
+	} else if (difficulty == 2) { // Hard
 		spyCount = 4;
 		spyFoodCost = 45;
 		spyGoldCost = 50;
@@ -65,7 +65,7 @@ bool Player::attack(City* theCity) {
 			}
 		}
 		if (correctNumber && !sendingZeroUnits) {
-			int ourDamage = 0, theirDamage = theCity->getSoldierCount() * theCity->getDefensivePower() / 4;
+			int ourDamage = 0, theirDamage = theCity->getSoldierCount() * theCity->getDefensivePower() / 3;
 			for (int i = 0;i < 4;i++) {
 				ourDamage += playersArmy[i].damage * inputArr[i];
 			}
@@ -73,20 +73,23 @@ bool Player::attack(City* theCity) {
 				
 				if ((float)ourDamage / (float)theirDamage >= 3.0f) {
 					cout << "After seeing the power of our army, enemy forces dropped their weapons and surrendered!\nWe now have control over the city.\n";
+					theCity->setRelationState("Captured");
 					return true;
 				} else if (float(ourDamage) / (float)theirDamage >= 2.0f){
 					cout << "Not so hard, but not so easy as well. The city is ours.\n";
 				} else {
-					cout << "It was a rough battle, but won bravely by our men.\n";
+					cout << "It was a tough battle, but won bravely by our men.\n";
 				}
 
 				for (int i = 0;i < 4;i++) {
 					if (inputArr[i] > 0) {
-						playersArmy[i].count -= ((float)log(ourDamage) / (float)log(theirDamage) - 1.0f) * playersArmy[i].casualtyRate * inputArr[i];
-						cout << "We lost " << playersArmy[i].count - inputArr[i] << " " << playersArmy[i].type << "(s).\n";
+						int casualty = (float)theirDamage / (float)ourDamage * playersArmy[i].casualtyRate * (float)inputArr[i];
+						playersArmy[i].count -= casualty;
+						cout << "We lost " << casualty << " " << playersArmy[i].type << "(s).\n";
 					}
 				}
 				
+				theCity->setRelationState("Captured");
 				return true;
 
 			} else { // Lose
@@ -163,8 +166,10 @@ bool Player::sendSpy(City* theCity) {
 		{
 		// spy sent
 		theCity->setSpyState(true);
+		cout << "Our spy has entered the enenmy's town!\n";
 		return true;
 	} else {
+		cout << "This task is impossible!\n";
 		return false;
 	}
 }
@@ -182,13 +187,21 @@ int* Player::inputArmy(string type) {
 		cout << "We currently have " << foodStock << " unit(s) of food and " << goldStock << "unit(s) of gold.\n";
 		for (int i = 0;i < 4;i++) {
 			cout << "We have " << playersArmy[i].count << ' ' << playersArmy[i].type << "(s)." << endl;
-			cout << "Each " << playersArmy[i].count << " needs " << playersArmy[i].foodCost << " units of food & " << playersArmy[i].goldCost << " units of gold. How many units do you want to recruit? ";
+			cout << "Each " << playersArmy[i].type << " needs " << playersArmy[i].foodCost << " units of food & " << playersArmy[i].goldCost << " units of gold. How many units do you want to recruit? ";
 			cin >> result[i];
 		}
 		// take input for spy and store it in result[5]
 		cout << "We have " << this->spyCount << " Spy(s).\n";
 		cout << "Each Spy needs " << spyFoodCost << " unit(s) of food and " << spyGoldCost << " unit(s) of gold. How many units do you want to recruit? ";
-		cin >> result[5];
+		cin >> result[4];
 	}
 	return result;
+}
+
+void Player::printPlayer() {
+	cout << "We have " << foodStock << " unit(s) of food & " << goldStock << " unit(s) of gold.\n";
+	cout << "We have " << spyCount << "Spu(s).\n";
+	for (int i = 0;i < 4;i++) {
+		cout << "We have " << playersArmy[i].count << ' ' << playersArmy[i].type << "(s)." <<  endl;
+	}
 }
