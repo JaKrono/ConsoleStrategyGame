@@ -1,2 +1,2 @@
 # ConsoleStrategyGame
-Lead the rebellion and learn the ways of war in this console based strategy game.
+Lead the rebellion and learn the ways of war in this terminal based strategy game.
